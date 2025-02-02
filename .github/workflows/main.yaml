@@ -1,13 +1,16 @@
-name: Log ISS Location Data Daily
+name: Test Workflow
 
 on:
-  schedule:
-    # Runs at 12:00 UTC (noon) every day
-    - cron: "0 12 * * *"
-  workflow_dispatch: # Allows manual triggering
-  
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
 jobs:
   test:
+    runs-on: ubuntu-latest
     steps:
       - name: 22ds3000157@ds.study.iitm.ac.in
         run: echo "Hello, world!"
